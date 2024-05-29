@@ -1,7 +1,12 @@
 import { Button } from "@nextui-org/react";
+import { logout } from "./logout/actions";
 
 export default function Home() {
   return (
-    <Button>Hola</Button>
+    <form action={logout}>
+      <Button type="submit">
+        LOGOUT
+      </Button>
+    </form>
   );
 }
