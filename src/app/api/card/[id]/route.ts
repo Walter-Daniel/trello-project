@@ -30,5 +30,29 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       );
     }
   
-    return NextResponse.json({ updated_card: data });
+  
+    return NextResponse.json({ message:"card updated successfully" });
   }
+  export async function DELETE(
+    req: Request,
+    { params }: { params: { id: string } }
+  ) {
+    const supabase = createClient();
+    const id = params.id;
+  
+  
+    const { data, error } = await supabase
+      .from("cards")
+      .delete({ count: "exact" })
+      .eq("id", id);
+  
+    if (error) {
+      return NextResponse.json(
+        { error: "Error deleting card " },
+        { status: 500 }
+      );
+    }
+  
+    return NextResponse.json({ message:"card deleted successfully"});
+  }
+  

@@ -47,5 +47,7 @@ export async function GET(
   if (!data.length) {
     return Response.json("There are no cards in this list");
   }
+
   return Response.json({ "Get all cards": data });
+  
 }
