@@ -3,6 +3,8 @@
 import React, { useEffect } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, Skeleton} from "@nextui-org/react";
 import { getUser } from '../actions/get-user';
+import { logout } from "@/app/logout/actions";
+
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [user, setUser] = React.useState(false);
@@ -54,22 +56,24 @@ export const NavbarComponent = () => {
                   <NavbarContent justify="end">
                     <NavbarItem className="hidden lg:flex">
                         <Button as={Link} color="secondary" href="#" variant="ghost">
-                            Login
+                            Login - BOTON1
                         </Button>
                     </NavbarItem>
                     <NavbarItem>
                       <Button as={Link} color="secondary" href="#" variant="solid">
-                        Sign Up
+                        Sign Up - BOTON2
                       </Button>
                     </NavbarItem>
                   </NavbarContent>
                 ) : (
                   <NavbarContent justify="end">
                     <NavbarItem>
-                      <Button as={Link} color="secondary" href="#" variant="solid">
-                        Logout
-                      </Button>
-                    </NavbarItem>
+                      <form action={logout}>
+                        <Button color="secondary" href="/" variant="solid" type="submit">
+                          Logout
+                        </Button>
+                      </form> 
+                    </NavbarItem>                    
                   </NavbarContent>
                 )
               }
