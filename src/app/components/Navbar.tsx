@@ -1,9 +1,12 @@
 'use client'
 
-import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import React, { useEffect } from "react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, Skeleton} from "@nextui-org/react";
+import { getUser } from '../../actions/get-user';
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [user, setUser] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const menuItems = [
     "Profile",
@@ -18,8 +21,21 @@ export const NavbarComponent = () => {
     "Log Out",
   ];
 
+  useEffect(() => {
+   const isAuth = async() => {
+    const user = await getUser();
+    if(user){
+      setUser(true)
+      setIsLoading(false)
+    }
+   }
+   isAuth();
+  }, [])
+  
+  
+
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="border-b-1">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -30,18 +46,36 @@ export const NavbarComponent = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-            <Button as={Link} color="secondary" href="#" variant="ghost">
-                Login
-            </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="secondary" href="#" variant="solid">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+      {
+          isLoading ? ( <Skeleton className="h-11 w-20 rounded-lg"/>) :(
+            <>
+              {
+                !user ? (
+                  <NavbarContent justify="end">
+                    <NavbarItem className="hidden lg:flex">
+                        <Button as={Link} color="secondary" href="#" variant="ghost">
+                            Login
+                        </Button>
+                    </NavbarItem>
+                    <NavbarItem>
+                      <Button as={Link} color="secondary" href="#" variant="solid">
+                        Sign Up
+                      </Button>
+                    </NavbarItem>
+                  </NavbarContent>
+                ) : (
+                  <NavbarContent justify="end">
+                    <NavbarItem>
+                      <Button as={Link} color="secondary" href="#" variant="solid">
+                        Logout
+                      </Button>
+                    </NavbarItem>
+                  </NavbarContent>
+                )
+              }
+            </>
+          )
+      }
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
