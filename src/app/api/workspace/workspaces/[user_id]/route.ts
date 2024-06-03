@@ -9,8 +9,6 @@ export async function GET(req: Request,{ params }: { params: { user_id: string }
     
     const {data, error} = await supabase.from("workspaces").select("*").eq("user_id", user_id);
 
-    console.log("asdasdasd",data);
-
     if (error) {
       console.error('Error fetching workspaces:', error);
       return new Response(JSON.stringify({ error: 'Error fetching workspaces' }), { status: 500 });
