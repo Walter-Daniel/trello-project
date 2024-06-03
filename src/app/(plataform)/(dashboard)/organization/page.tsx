@@ -31,7 +31,7 @@ export default async function OrganizationPage() {
 
 
 
-  const response: ResponseProp = await fetch(`http://localhost:3000/api/workspace/${id}`, {
+  const response: ResponseProp = await fetch(`http://localhost:3000/api/workspace/workspaces/${id}`, {
                           method: 'GET',
                           headers: {
                               'Content-type': 'application/json',

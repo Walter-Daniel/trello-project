@@ -13,8 +13,8 @@ export type State = {
 
 const CreateWorkSpae = z.object({
     title: z.string({
-        required_error: "Name is required",
-        invalid_type_error: "Name must be a string",
+        required_error: "Title is required",
+        invalid_type_error: "Title must be a string",
     }).min(3, {
         message: "Minimum length of 3 letters is required"
     }).max(20, { 
@@ -22,7 +22,7 @@ const CreateWorkSpae = z.object({
     }).trim(),
 })
 
-export async function create(prevState: State, formData: FormData) {
+export async function createList(prevState: State, formData: FormData) {
 
     const validatedFields = CreateWorkSpae.safeParse({
         title: formData.get('title')
