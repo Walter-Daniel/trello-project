@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, Skeleton} from "@nextui-org/react";
-import { getUser } from '../../actions/get-user';
+import { getUser } from '../actions/get-user';
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [user, setUser] = React.useState(false);

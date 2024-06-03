@@ -1,4 +1,4 @@
-import { NavbarComponent } from "@/app/components/Navbar";
+import { NavbarComponent } from "@/components/Navbar";
 
 const OrganizationLayout = ({children}: {
     children: React.ReactNode;
