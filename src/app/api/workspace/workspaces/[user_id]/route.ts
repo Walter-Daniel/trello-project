@@ -5,12 +5,10 @@ export async function GET(req: Request,{ params }: { params: { user_id: string }
 
     const supabase = createClient();
     const user_id =  params.user_id;
-    console.log("user", user_id);    
     
     const {data, error} = await supabase.from("workspaces").select("*").eq("user_id", user_id);
 
     if (error) {
-      console.error('Error fetching workspaces:', error);
       return new Response(JSON.stringify({ error: 'Error fetching workspaces' }), { status: 500 });
 
     }
