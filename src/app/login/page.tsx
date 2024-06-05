@@ -1,9 +1,19 @@
 import { login, signup, } from './actions'
 import React from "react";
 import { IoMedalOutline } from 'react-icons/io5';
+import { createClient } from "@/app/utils/supabase/server";
+import { NavbarComponent } from "@/components/Navbar";
+import { redirect } from 'next/navigation'
 
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  
+    const supabase = createClient()
+    const { data, error } = await supabase.auth.getUser()
+    if (error || data?.user) {
+      redirect('/organization')
+    }
+  
   return (
   <div className="mt-10 mx-auto max-w-fit p-20 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <form className=" max-w-md mx-auto">

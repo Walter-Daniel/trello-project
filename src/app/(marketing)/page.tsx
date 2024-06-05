@@ -1,8 +1,17 @@
 import { Button } from '@nextui-org/react';
 import { IoMedalOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import { createClient } from "@/app/utils/supabase/server";
+import { redirect } from 'next/navigation'
 
-export default function MarketingPage() {
+
+export default async function MarketingPage() {
+
+  const supabase = createClient()
+  const { data, error } = await supabase.auth.getUser()
+  if (error || data?.user) {
+    redirect('/organization')
+  }
   return (
     
     <div className="flex items-center justify-center flex-col">
