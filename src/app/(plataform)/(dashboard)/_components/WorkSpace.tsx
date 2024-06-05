@@ -24,7 +24,7 @@ export const WorkSpace = ({ title, id, index }:WorkSpaceProps) => {
   return (
     <Link 
       href={`/organization/${id}`} 
-      className={`${backgroundClass} space-y-2 flex-col items-center gap-2 p-2 m-2 hadow-md h-[6rem] w-[15rem] hover:shadow-lg hover:scale-105 hover:border hover:border-black ease-in-out duration-300`}>
+      className={`${backgroundClass} space-y-2 flex-col items-center gap-2 p-2 m-2 h-[6rem] w-[15rem] hover:shadow-lg hover:scale-105 hover:border hover:border-black ease-in-out duration-300`}>
         <p className="font-semibold p-2">{!pending ? title: 'Cargando....'}</p>
     </Link>
   )
