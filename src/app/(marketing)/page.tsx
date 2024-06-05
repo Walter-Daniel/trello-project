@@ -7,11 +7,11 @@ import { redirect } from 'next/navigation'
 
 export default async function MarketingPage() {
 
-  const supabase = createClient()
-  const { data, error } = await supabase.auth.getUser()
-  if (error || data?.user) {
-    redirect('/organization')
-  }
+  // const supabase = createClient()
+  // const { data, error } = await supabase.auth.getUser()
+  // if (error || data?.user) {
+  //   redirect('/organization')
+  // }
   return (
     
     <div className="flex items-center justify-center flex-col">
