@@ -7,11 +7,11 @@ import { redirect } from 'next/navigation'
 
 export default async function MarketingPage() {
 
-  const supabase = createClient()
-  const { data, error } = await supabase.auth.getUser()
-  if (error || data?.user) {
-    redirect('/organization')
-  }
+  // const supabase = createClient()
+  // const { data, error } = await supabase.auth.getUser()
+  // if (error || data?.user) {
+  //   redirect('/organization')
+  // }
   return (
     
     <div className="flex items-center justify-center flex-col">
@@ -27,10 +27,12 @@ export default async function MarketingPage() {
           work forward
         </div>
       </div>
-      <div className='text-sm md:text-xl text-neutral-400 max-w-xs md:max-w-2xl mt-4'>
-        Collaborate, manage projects, and reach new productivity peaks. From rises to the home office, the way your team works is unique - accomplish it all with taskify
+      <div className='text-sm md:text-xl text-neutral-400 max-w-xs md:max-w-2xl mt-4 text-center'>
+        Collaborate, manage projects, and reach new productivity peaks. From rises to the home office, the way your team works is unique  accomplish it all with TRELLOFY.
       </div>
-      
+      <div className='text-sm md:text-xl text-neutral-400 max-w-xs md:max-w-2xl mt-4 text-center'>
+      TRELLOFY is a user-friendly project management tool that helps you organize tasks visually. You create boards for projects, lists for stages or categories, and cards for individual tasks. It allows collaboration with team members, offers labels for categorization, and integrates with other tools for enhanced productivity. Trello also features automation to streamline your workflow.
+      </div>
       <Link href='../login' className='mt-6'>
         <Button color='secondary'>Get TRELLOFY for free</Button>
       </Link>
