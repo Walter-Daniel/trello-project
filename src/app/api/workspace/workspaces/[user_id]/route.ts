@@ -13,7 +13,6 @@ export async function GET(req: Request,{ params }: { params: { user_id: string }
 
     }
     return Response.json({ "Get all workspaces": data });
- 
 }
   
 export async function POST(

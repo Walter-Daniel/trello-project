@@ -45,13 +45,16 @@ export async function create(prevState: State, formData: FormData) {
             },
             body: JSON.stringify({ title }),
         })
+
+        {message:'hola'}
+        prevState.message = 'Holaaaa'
         
     } catch (error) {
         return {
             message: "Database Error"
         }
     }
-
+    
     revalidatePath(`/organization`);
     redirect(`/organization`);
 
