@@ -6,6 +6,7 @@ import { NavbarComponent } from "@/components/Navbar";
 import { redirect } from 'next/navigation'
 
 
+
 export default async function LoginPage() {
   
     // const supabase = createClient()
@@ -32,7 +33,7 @@ export default async function LoginPage() {
       </div>  
       <div className="mt-10 space-x-5 align-middle flex items-center justify-center"> 
         <button className="border-2  py-3 bg-[#765898] text-white p-1 rounded-xl px-10 align-middle" formAction={login} color='secondary'>Log in</button>
-        <button className="border-2  py-3 bg-[#765898] text-white p-1 rounded-xl px-10 align-middle" formAction={signup} color= 'secondary'>Sign up</button> 
+        <button className="border-2  py-3 bg-[#765898] text-white p-1 rounded-xl px-10 align-middle" formAction={signup} color= 'secondary'>Sign up</button>         
       </div>        
     </form>
   </div>
