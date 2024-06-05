@@ -11,22 +11,22 @@ export type State = {
 }
 
 
-export async function createList(formData: FormData) {
+export async function createCard(formData: FormData) {
         const title= formData.get('title') as string;
+        const description= formData.get('description') as string;
         const id = formData.get('organizationId') as string;
+        const list_id = formData.get('listId') as string;
     try {
-        await fetch(`http://localhost:3000/api/list/workspace/${id}`, {
+        await fetch(`http://localhost:3000/api/card/list/${list_id}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify({ title }),
+            body: JSON.stringify({ title, description, list_id }),
         })
         
     } catch (error) {
-        return {
-            message: "Database Error"
-        }
+        console.log(error)
     }
 
     revalidatePath(`/organization/${id}`);

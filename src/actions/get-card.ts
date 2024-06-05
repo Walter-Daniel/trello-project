@@ -1,8 +1,8 @@
 'use server'
 
-export const getList = async(id:string) => {
+export const getCard = async(id:string) => {
     const response = await fetch(
-        `http://localhost:3000/api/list/workspace/${id}`,
+        `http://localhost:3000/card/list/${id}`,
         {
           method: "GET",
           headers: {

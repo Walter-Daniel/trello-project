@@ -48,7 +48,7 @@ export default async function OrganizationPage() {
     });
 
   return (
-    <>
+    <div className="p-10">
       <div className="flex items-center pb-5">
         <Image
           src="/hero.png"
@@ -75,6 +75,6 @@ export default async function OrganizationPage() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
