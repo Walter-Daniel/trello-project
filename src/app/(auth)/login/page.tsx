@@ -2,7 +2,6 @@ import { login, signup, } from './actions'
 import React from "react";
 import { IoMedalOutline } from 'react-icons/io5';
 import { createClient } from "@/app/utils/supabase/server";
-import { NavbarComponent } from "@/components/Navbar";
 import { redirect } from 'next/navigation'
 
 
