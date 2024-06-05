@@ -5,6 +5,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navbar
 import { getUser } from '../actions/get-user';
 import { logout } from "@/app/logout/actions";
 
+
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [user, setUser] = React.useState(false);
@@ -67,7 +68,7 @@ export const NavbarComponent = () => {
                   </NavbarContent>
                 ) : (
                   <NavbarContent justify="end">
-                    <NavbarItem>
+                    <NavbarItem>                    
                       <form action={logout}>
                         <Button color="secondary" href="/" variant="solid" type="submit">
                           Logout
